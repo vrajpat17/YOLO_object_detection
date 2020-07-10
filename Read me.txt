@@ -1,0 +1,33 @@
+Cell2: coco.names consists of all the labels of objects that can be detected (80 labels)
+	These are split into 80 strips
+	
+	each object that will be identified will be placed in boxes. The color of boxes are
+	generated randomly using np.random.seed(x). {if x = 0, the number are always 
+	abrupt while if x is a number other than zero, the randomly generated images repeat after 
+	that number of times.
+
+
+Cell4: The pre-trained weights and configuration is loaded.
+	cv2.dnn function is used as a neural network
+
+C5 : the image is loaded
+	dimensions of the image are derived
+	
+	net.getLayerNames() == THe yolo architecture has several layers of neural network. This 
+	function returns 106 layer values (for yolov3)
+
+	net.getUnconnectedOutLayers() == return the unconnected or output layers.
+
+
+C6: parameter values are initialised (boxes, confidences, classIDs)
+
+C7: for each output, score, confidence and classId are extracted.
+	if c>0.5
+		the bounding boxes are fecilatated
+
+
+C8: Non maxima suppression is applied to supress weak boxes.
+
+
+
+  
